@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-image: var(--bg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.main{
+    margin: 0;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.main::before{
+    content: '';
+    background-image: url('');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 140vw;
+    height: 100vh;
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.main::after{
+    background: no-repeat;
+    background-size: contain;
+    width: 140vw;
+    height: 100vh;
+    display: inline-block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    transform: rotate(180deg);
+}
+
+.acordeon{
+    color: var(--text-color);
+}
+
+a{
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:hover{
+    color: #ba87fdd8;
+    text-decoration: underline;
+}
+
+.dark{
+    --text-color: white;
+    --bg: url(../img/img.jpg);
+    --border-color: rgba(255,255,255,0.5);
+    --surface-color: rgba(255,255,255,0.05);
+    --surface-color-hover: rgba(0,0,0,0.02);
+    --high-light-color: rgba(255,255,255,0.2);
+    --switch-image: url(../img/icons/moon-stars.svg);
+    --git: url(../img/icons/github.svg);
+    --arrow: url(../img/icons/arrow-to-top-right-svgrepo-com.svg);
+    --check: url(../img/icons/check.svg);
+    --date: url(../img/icons/data.svg);
+}
+
+.light{
+    --text-color: black;
+    --bg: url(../img/zoroo.jpg);
+    --border-color: rgba(0,0,0,0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(255,255,255,0.2);
+    --high-light-color: rgba(0,0,0,0.1);
+    --switch-image: url(../img/icons/sun.svg);
+    --git: url(../img/icons/github-142-black.svg);
+    --arrow: url(../img/icons/arrow-to-top-right-black.svg);
+    --check: url(../img/icons/correct-signal-black.svg);
+    --date: url(../img/icons/date-range-black.svg);
+}
+
+.switch{
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+}
+
+.switch button{
+    width: 32px;
+    height: 32px;
+    background: white;
+    border: 0;
+    border-radius: 50%;
+    background-image: var(--switch-image) ;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    
+    transform: translateY(-50%); 
+    top: 50%;
+    right: 50%;
+    animation: slide-out 0.2s forwards;
+
+}
+
+.switch,.switch button:hover{
+    cursor: pointer;
+
+}
+
+.switch button:hover{
+    outline: 9px solid var(--high-light-color)
+}
+
+.switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+
+}
+
+.light button{
+   animation: slide-in 0.2s forwards;
+
+
+}
+
+
+@keyframes slide-in{
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%;
+    }
+}
+
+@keyframes slide-out {
+    from{
+        left: 50%;
+    }
+    to{
+        left: 0;
+    }
+}
+
+@media only screen and (min-width:768px)
+{
+    .main{
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+    .main::before,
+    .main::after
+    {
+        width: 70vw;
+    }
+}
